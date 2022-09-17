@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
   }
 `
   useEffect(()=>{
-    axios.get(`http://api.weatherapi.com/v1/current.json?key=${Key}&q=${location}&aqi=no`)
+    axios.get(`https://api.weatherapi.com/v1/current.json?key=${Key}&q=${location}&aqi=no`)
     .then((data)=>{
       setWeather(data.data);
       console.log(data.data)
@@ -34,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
     .catch(err => console.log(err))
   },[Key, location])
   useEffect(()=>{
-    axios.get(`http://api.weatherapi.com/v1/forecast.json?key=${Key}&q==${location}&days=3&aqi=no&alerts=no`)
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${Key}&q==${location}&days=3&aqi=no&alerts=no`)
     .then((data)=>{
       setForecast(data.data);
       console.log(data.data)
@@ -42,20 +42,14 @@ const GlobalStyle = createGlobalStyle`
     .catch(err => console.log(err))
   },[Key, weather?.current.condition.text, location])
   useEffect(()=>{
-    axios.get(`http://api.weatherapi.com/v1/search.json?key=${Key}&q==${location}&aqi=no`)
+    axios.get(`https://api.weatherapi.com/v1/search.json?key=${Key}&q==${location}&aqi=no`)
     .then((data)=>{
       setSearch(data.data);
       console.log(data.data)
     })
     .catch(err => console.log(err))
   },[Key,location])
-  useEffect(()=>{
-    axios.get(`http://api.weatherapi.com/v1/astronomy.json?key=${Key}&q=London&aqi=no`)
-    .then((data)=>{
-      // setSearch(data.data);
-    })
-    .catch(err => console.log(err))
-  },[Key])
+
   return (
     <AppStyle $mode={mode}>
       <GlobalStyle/>
