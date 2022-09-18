@@ -13,7 +13,7 @@ const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
       <div className='heading'>
         <h2>{weather?.location.name}, {weather?.location.country}.</h2>
         <h3>{String(date).slice(0,-42)}</h3>
-        <h4>{weather?.location.localtime.slice(10,17)}</h4>
+        <h4>{weather?.current.temp_c} C</h4>
         <div className='buttons'>
           <button className='selected'><Link to='/'>Forecast</Link></button>
           <button><Link to='/air'>Air Quality</Link></button>
