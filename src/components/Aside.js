@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import HomeIcon from '../images/house.svg';
@@ -45,7 +45,6 @@ const Aside = ({mode, setMode}) => {
 const AsideStyle = styled.div`
 padding:2rem;
 background-color:${({$mode})=>$mode?'#FAFAF0':'#020c38'};
-height:100%;
     .asideicons{
         a{
         display:flex;
