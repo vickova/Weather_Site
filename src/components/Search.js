@@ -5,10 +5,10 @@ import SearchItem from './SearchItem'
 
 const Search = ({search, weather, setLocation, mode})=>{
   const [changeSearch, setChangeSearch] = useState('');
-  const [loading, setLoading] = useState(false);
+  // const [loading, setLoading] = useState(false);
   const FormHandler = (e)=>{
     e.preventDefault();
-    setLoading(true);
+    // setLoading(true);
     if(changeSearch ===''){
       setChangeSearch((prev)=> prev);
     }
@@ -25,7 +25,7 @@ const Search = ({search, weather, setLocation, mode})=>{
         <p>Find the area or city that you want to know the detailed weather info at this time</p>
         <form>
             <input value={changeSearch} type="text" onChange={SearchHandler}/>
-            <button disabled={loading} onClick={FormHandler}><img src={Location} alt="location icon" /></button>
+            <button onClick={FormHandler}><img src={Location} alt="location icon" /></button>
         </form>
         <div className='search-list'>
         {search?.map((item, i)=>{

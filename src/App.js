@@ -19,12 +19,6 @@ function App() {
 
   const Key = process.env.REACT_APP_WEATHER_API;
 
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin:0;
-    font-family: 'Open Sans', sans-serif;
-  }
-`
   useEffect(()=>{
     axios.get(`https://api.weatherapi.com/v1/current.json?key=${Key}&q=${location}&aqi=no`)
     .then((data)=>{
@@ -34,7 +28,7 @@ const GlobalStyle = createGlobalStyle`
     .catch(err => console.log(err))
   },[Key, location])
   useEffect(()=>{
-    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${Key}&q==${location}&days=3&aqi=no&alerts=no`)
+    axios.get(`https://api.weatherapi.com/v1/forecast.json?key=${Key}&q=${location}&days=3&aqi=no&alerts=no`)
     .then((data)=>{
       setForecast(data.data);
       console.log(data.data)
@@ -42,7 +36,7 @@ const GlobalStyle = createGlobalStyle`
     .catch(err => console.log(err))
   },[Key, weather?.current.condition.text, location])
   useEffect(()=>{
-    axios.get(`https://api.weatherapi.com/v1/search.json?key=${Key}&q==${location}&aqi=no`)
+    axios.get(`https://api.weatherapi.com/v1/search.json?key=${Key}&q=${location}&aqi=no`)
     .then((data)=>{
       setSearch(data.data);
       console.log(data.data)
@@ -69,6 +63,12 @@ const GlobalStyle = createGlobalStyle`
   );
 }
 
+const GlobalStyle = createGlobalStyle`
+  body {
+    margin:0;
+    font-family: 'Open Sans', sans-serif;
+  }
+`
 const AppStyle = styled.div`
   background-color:${({$mode})=>$mode?'#FAFAF0':'#020e42'};
   display:flex;
