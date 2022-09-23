@@ -16,14 +16,17 @@ const Settings = () => {
 const SettingsStyle = styled.div`
 margin:1rem;
 img{
-  width:100%;
+  height:500px;
+  width:500px;
 }
 button{
-      padding:1rem 2rem;
+      padding:1.5rem 2.5rem;
       border-radius:10px;
       background: linear-gradient(gray, #9198e5);
       border:none;
       outline:none;
+      display:block;
+      margin:1rem 0;
       a{
         text-decoration:none;
         color:black;
