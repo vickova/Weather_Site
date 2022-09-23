@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import ForecastHome from './ForecastHome';
@@ -8,6 +8,7 @@ import ForecastAir from './ForecastAir';
 
 const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
   const date = new Date(weather?.location.localtime.slice(0,-5));
+  const {pathname} = useLocation();
   return (
     <HomeStyle $mode={mode}>
       <div className='heading'>
@@ -15,15 +16,15 @@ const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
         <h3>{String(date).slice(0,-42)}</h3>
         <h4>{weather?.current.temp_c} C</h4>
         <div className='buttons'>
-          <button className='selected'><Link to='/'>Forecast</Link></button>
-          <button><Link to='/air'>Air Quality</Link></button>
+          <button className={pathname==='/'?'selected':''}><Link to='/'>Forecast</Link></button>
+          <button className={pathname==='/air'?'selected':''}><Link to='/air'>Air Quality</Link></button>
         </div>
         <img src={weather?.current.condition.icon} alt="weather-icon" />
         <p>{weather?.current.condition.text}</p>
       </div>
       <Routes>
         <Route path='/'   element={<ForecastHome weather={weather} setWeather={setWeather} forecast={forecast} setForecast={setForecast}/>}/>
-        <Route path='/air' element={<ForecastAir/>}/>
+        <Route path='/air' element={<ForecastAir weather={weather} setWeather={setWeather}/>}/>
       </Routes>
     </HomeStyle>
   )
