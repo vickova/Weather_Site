@@ -66,6 +66,7 @@ p{
       background: linear-gradient(gray, #9198e5);
       border:none;
       outline:none;
+      cursor:pointer;
     }
   }
   .search-list{
