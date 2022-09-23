@@ -73,7 +73,7 @@ const AppStyle = styled.div`
   background-color:${({$mode})=>$mode?'#FAFAF0':'#020e42'};
   display:flex;
   justify-content:center;
-  height:100vh;
+  min-height:100vh;
   p{
     color:${({$mode})=>$mode?'#020e42':'#e4e1e1'}
   }
@@ -82,7 +82,6 @@ const AppStyle = styled.div`
   }
   .otherside{
     margin:0 6rem;
-    height:100vh;
   }
   @media screen and (min-width: 1000px){
     .otherside{
@@ -103,7 +102,6 @@ const MainStyle = styled.div`
   flex-direction:row-reverse;
   gap:1rem;
   width:100%;
-  height:100vh;
   @media screen and (max-width: 980px){
     display:block;
   }
