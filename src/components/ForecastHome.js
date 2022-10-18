@@ -70,10 +70,10 @@ const ForecastHomeStyle = styled.div`
                 font-size:1.2rem;
             }
             p{
-                color:${({mode})=>mode?'#020e42, ':'#e4e1e1'};
+                color:${({$mode})=>$mode?'#020e42, ':'#e4e1e1'};
             }
             h2, h3, h4{
-                color:${({mode})=>mode?'#020e42':'#e4e1e1'};
+                color:${({$mode})=>$mode?'#020e42':'#e4e1e1'};
             }
             h4, p{
                 margin:1rem 0;
