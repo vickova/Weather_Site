@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { Route, Routes } from 'react-router-dom';
 import ForecastHome from './ForecastHome';
 import ForecastAir from './ForecastAir';
+import Loading from './Loading';
 
 
 const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
@@ -11,6 +12,8 @@ const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
   const {pathname} = useLocation();
   return (
     <HomeStyle $mode={mode}>
+      {weather!==null?
+      <div>
       <div className='heading'>
         <h2>{weather?.location.name}, {weather?.location.country}.</h2>
         <h3>{String(date).slice(0,-42)}</h3>
@@ -23,9 +26,12 @@ const Home = ({weather, setWeather, forecast, setForecast, mode}) => {
         <p>{weather?.current.condition.text}</p>
       </div>
       <Routes>
-        <Route path='/'   element={<ForecastHome weather={weather} setWeather={setWeather} forecast={forecast} setForecast={setForecast}/>}/>
+        <Route path='/'   element={<ForecastHome mode={mode} weather={weather} setWeather={setWeather} forecast={forecast} setForecast={setForecast}/>}/>
         <Route path='/air' element={<ForecastAir weather={weather} setWeather={setWeather}/>}/>
       </Routes>
+      </div>:
+      <Loading/>
+    }
     </HomeStyle>
   )
 }

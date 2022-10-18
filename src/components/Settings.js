@@ -32,5 +32,14 @@ button{
         color:black;
       }
     }
+    @media screen and (max-width: 380px){
+      img{
+        width:100%;
+        height:250px;
+      }
+      button{
+        padding:1rem 2rem;
+      }
+    }
 `
 export default Settings;

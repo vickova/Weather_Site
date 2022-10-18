@@ -2,9 +2,9 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-const ForecastHome = ({weather, setWeather, forecast, setForecast}) => {
+const ForecastHome = ({weather, setWeather, forecast, setForecast, mode}) => {
   return (
-    <ForecastHomeStyle>
+    <ForecastHomeStyle $mode={mode}>
         <div className='main-values'>
             <div className='sect'>
                 <p>Temp</p>
@@ -60,6 +60,7 @@ const ForecastHomeStyle = styled.div`
         display:flex;
         justify-content:center;
         gap:2rem;
+        color:#FFF;
         .sect{
             text-align:center;
             p{
@@ -69,10 +70,10 @@ const ForecastHomeStyle = styled.div`
                 font-size:1.2rem;
             }
             p{
-                color:${({$mode})=>$mode?'#e4e1e1':'#020e42'}
+                color:${({mode})=>mode?'#020e42, ':'#e4e1e1'};
             }
             h2, h3, h4{
-                color:${({$mode})=>$mode?'#e4e1e1':'#020e42'}
+                color:${({mode})=>mode?'#020e42':'#e4e1e1'};
             }
             h4, p{
                 margin:1rem 0;
