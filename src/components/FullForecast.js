@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import Loading from './Loading';
 
 const FullForecast = ({forecast, weather, setForecast, setWeather, mode}) => {
   const date = new Date(weather?.location.localtime.slice(0,-5));
   return (
     <FullForecastStyle $mode={mode}>
+      {weather !==null?
+      <div>
       <h2>Forecast Report</h2>
       <div className='forecast-cover'>
             <div className='flex-forecast'>
@@ -66,6 +69,9 @@ const FullForecast = ({forecast, weather, setForecast, setWeather, mode}) => {
             </div>
           </div>
         </div>
+        </div>:
+          <Loading/>
+          }
     </FullForecastStyle>
   )
 }

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import Location from '../images/location.svg';
-import SearchItem from './SearchItem'
+import SearchItem from './SearchItem';
+import Loading from './Loading';
 
 const Search = ({search, weather, setLocation, mode})=>{
   const [changeSearch, setChangeSearch] = useState('');
@@ -21,6 +22,8 @@ const Search = ({search, weather, setLocation, mode})=>{
   }
   return(
     <SearchStyle $mode={mode}>
+      {weather!==null?
+      <div>
         <h2>Pick location</h2>
         <p>Find the area or city that you want to know the detailed weather info at this time</p>
         <form>
@@ -34,6 +37,9 @@ const Search = ({search, weather, setLocation, mode})=>{
           )
         })}
         </div>
+        </div>:
+        <Loading/>
+        }
     </SearchStyle>
   )
 }
